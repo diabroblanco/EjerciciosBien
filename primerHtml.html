@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!---Metadatos-->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="autor" content="Adrian Blanco Perez">
+    <meta name="description" content="Mi primer archivo html">
+    <meta name="keyword" content="html,mi primera pagina, css">
+    <meta name="generator" content="Así se hace una página">
+    <title>You see me rolling</title>
+    <link rel="shortcut icon" href="img/desarrollador-de-software.png" type="image/png">
+    <link rel="stylesheet" href="css/mis-estilos.css" type="text/css">
+    <style>
+        /*codigo css incrustrado*/
+        body{
+            display: block;
+            margin: 8px;
+            background-color: lightgray;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+        /*punto para class y apostrofe para id*/
+        .encabezado{
+            margin: auto;
+            width: 50%;
+            color: rgb(111, 14, 202);
+        }
+        #importante{
+            font-weight: 500;
+            text-decoration: underline;
+        }
+        #titulo{
+            text-transform: capitalize;
+        }
+        .lineafooter{
+           border: 8px dotted rgb(20, 19, 17);
+          
+        }
+        .espaciado{
+            padding: 15px 7px 15px 7px
+        }
+        .imagen{
+            width: 10%;
+            margin: auto;
+        }
+        .listasSinFormato{
+            list-style: none;
+            
+
+        }
+        a{
+            text-decoration: none;
+        }
+    </style>
+    <script>
+        //escribir
+    </script>
+</head>
+
+<body>
+    <nav>
+        <!--Listas ordenadas, no ordenadas y de definiciones-->
+        <ul class="listasSinFormato">
+            <li><a href="#">Inicio</a>
+                Inicio</li>
+            <li><a href="https://www.google.es/" >Google</a>
+                Google</li>
+            <li><a href="amazon.es">Amazon</a>
+                Amazon</li>
+            <li><a href="ceat.es">Ceat</a>
+                Ceat</li>
+        </ul>
+
+    </nav>
+    <article>
+        <!--Igual es un header que un div si es para dar formato-->
+        <header class="encabezado">
+            <h1 id="titulo">MI PRIMERA PAGINA web</h1>
+            <p>Este es un ejemplo de un parrafo <span id="importante">HTML</span>,
+                 con texto normal sin estilos CSS</p> 
+        </header>
+        <aside class="encabezado">
+            <p>Segundo Párrafo</p>
+            <hr>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima sint hic nam a suscipit dignissimos.<br> Vero ad dolorum facere excepturi dolorem est, placeat obcaecati odio ratione quam. Optio, harum accusamus?</p>
+            <p class="lineafooter espaciado" >Lorem ipsum dolor sit amet consectetur adipisicing elit. <br>Laborum molestias officiis odit illum voluptates itaque animi doloremque praesentium reprehenderit minus quisquam perferendis nostrum in, magni accusamus fugit ipsa harum reiciendis!</p>
+
+        </aside>
+    </article>
+     <!--el div es un contenedor que me permite incluir diferentes contenidos y se pueden
+    aplicar atributos-->
+    <img   src="img/desarrollador-de-software.png"  alt="Es una imagen que muestra un ordenador con lenguaje de programación" title="programación de Sistemas" class="imagen">
+    <footer>
+    <h2>Esto es un footer con h2</h2>
+    <h3>Esto es un footer con h3</h3>
+    <h4>Esto es un footer con h4</h4>
+    <h5>Esto es un footer con h5</h5>
+    <h6>Esto es un footer con h6</h6>
+
+    </footer>
+   <hr class="lineafooter">
+  
+    
+ 
+
+
+
+
+</body>
+</html>
