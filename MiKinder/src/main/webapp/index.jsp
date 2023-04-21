@@ -19,14 +19,14 @@
 </p>
 
 <p>(*)Campos obligatorios</p>
-<form action="Controller" method="get">
+<form action="Controller" method="get"  class="row g-3 needs-validation" novalidate>
 <h2 class="bg-success-subtle text-center">Datos del niñ@</h2>
 <div class="row">
   <div class="col">
-    <input type="text" class="form-control text-capitalize" placeholder="Nombre*" aria-label="Nombre" name="nombren" value="${param.nombren}" required>
+    <input type="text" class="form-control text-capitalize" placeholder="Nombre*" aria-label="Nombre" name="nombren" value="${param.nombren}" required pattern="[a-zA-Z]+">
   </div>
   <div class="col">
-    <input type="text" class="form-control text-capitalize" placeholder="Apellidos*" aria-label="Apellidos" name="apellidosn" value="${param.apellidosn}" required>
+    <input type="text" class="form-control text-capitalize" placeholder="Apellidos*" aria-label="Apellidos" name="apellidosn" value="${param.apellidosn}" required pattern="[a-zA-Z]+">
   </div>
   <div class="col-2 text-end pt-xl-2" >
   <label for="fNacimiento" >Fecha nacimiento*</label>
@@ -37,23 +37,23 @@
 
 <div class="row">
 <div class="col-4 mt-3">
-  <input type=text class="form-control text-capitalize" aria-label="Direccion" name="direccion" placeholder="Dirección*" value="${param.direccion}" required>
+  <input type=text class="form-control text-capitalize" aria-label="Direccion" name="direccion" placeholder="Dirección*" value="${param.direccion}" required >
   </div>
 <div class="col-4 mt-3 mx-auto">
-  <input type=text class="form-control text-capitalize" aria-label="Poblacion" name="poblacion" placeholder="Población*" value="${param.poblacion}" required>
+  <input type=text class="form-control text-capitalize" aria-label="Poblacion" name="poblacion" placeholder="Población*" value="${param.poblacion}" required pattern="[a-zA-Z]+">
   </div>
   <div class="col-4 mt-3 mx-auto">
-  <input type=text class="form-control" aria-label="CP" name="cp" placeholder="Codigo Postal*" value="${param.cp}" required>
+  <input type=text class="form-control" aria-label="CP" name="cp" placeholder="Codigo Postal*" value="${param.cp}" required pattern="[0-9]{5}">
   </div>
   </div>
   </div>
 <h2 class="bg-success-subtle my-4 text-center">Datos Tutor</h2>
 <div class="row">
 <div class="col">
-    <input type="text" class="form-control text-capitalize"  placeholder="Nombre*" aria-label="Nombre" name="nombre" value="${param.nombre}" required>
+    <input type="text" class="form-control text-capitalize"  placeholder="Nombre*" aria-label="Nombre" name="nombre" value="${param.nombre}" required pattern="[a-zA-Z]+">
   </div>
   <div class="col">
-    <input type="text" class="form-control text-capitalize" placeholder="Apellidos*" aria-label="Apellidos" name="apellidos" value="${param.apellidos}" required>
+    <input type="text" class="form-control text-capitalize" placeholder="Apellidos*" aria-label="Apellidos" name="apellidos" value="${param.apellidos}" required pattern="[a-zA-Z]+">
   </div>
   <div class="col">
 
@@ -68,30 +68,30 @@
     <input type="text" class="form-control text-Uppercase" placeholder="DNI*" aria-label="dni" name="dni" value="${param.dni}" required>
   </div>
   <div class="col-2">
-    <input type="text" class="form-control text-capitalize" placeholder="Profesión" aria-label="profesion" name="profesion">
+    <input type="text" class="form-control text-capitalize" placeholder="Profesión" aria-label="profesion" name="profesion" pattern="[a-zA-Z]+">
   </div>
   </div>
   
   <div class="row ">
   <div class="col-3 mt-3 mx-auto">
-    <input type="text" class="form-control" placeholder="Teléfono*" aria-label="telefono" name="telefono" value="${param.telefono}" required>
+    <input type="text" class="form-control" placeholder="Teléfono*" aria-label="telefono" name="telefono" value="${param.telefono}" required pattern="[6789]{1}[0-9]{9}">
   </div>
   <div class="col-3 mt-3 mx-auto">
-    <input type="text" class="form-control" placeholder="e-mail" aria-label="email" name="email" value="${param.email}">
+    <input type="email" class="form-control" placeholder="e-mail" aria-label="email" name="email" value="${param.email}">
   </div>
  </div>
  <hr class="mt-4 border border-black">
  <hr class="border border-black">
  <div class="row">
 <div class="col">
-    <input type="text" class="form-control text-capitalize" placeholder="Nombre" aria-label="Nombre" name="nombre2" value="${param.nombre2}">
+    <input type="text" class="form-control text-capitalize" placeholder="Nombre" aria-label="Nombre" name="nombre2" value="${param.nombre2}" pattern="[a-zA-Z]+">
   </div>
   <div class="col">
-    <input type="text" class="form-control text-capitalize" placeholder="Apellidos" aria-label="Apellidos" name="apellidos2" value="${param.apellidos2}">
+    <input type="text" class="form-control text-capitalize" placeholder="Apellidos" aria-label="Apellidos" name="apellidos2" value="${param.apellidos2}" pattern="[a-zA-Z]+">
   </div>
   <div class="col">
 
-  <select class="form-select form-select-sm" id="floatingSelect" aria-label="Floating label select example" name="relacion2" value="${param.relacion2}">
+  <select class="form-select form-select-sm" id="floatingSelect" aria-label="Floating label select example" name="relacion2" value="${param.relacion2}" pattern="[a-zA-Z]+">
     <option selected></option>
     <option value="padre">Padre</option>
     <option value="madre">Madre</option>
@@ -102,14 +102,14 @@
     <input type="text" class="form-control text-Uppercase" placeholder="DNI" aria-label="dni" name="dni2" value="${param.dni2}">
   </div>
   <div class="col-2">
-    <input type="text" class="form-control text-capitalize" placeholder="Profesión" aria-label="profesion" name="profesion2" value="${param.profesion2}">
+    <input type="text" class="form-control text-capitalize" placeholder="Profesión" aria-label="profesion" name="profesion2" value="${param.profesion2}" pattern="[a-zA-Z]+">
   </div>
   <div class="row ">
   <div class="col-3 mt-3 mx-auto">
-    <input type="text" class="form-control " placeholder="Teléfono" aria-label="telefono" name="telefono2" value="${param.telefono2}">
+    <input type="text" class="form-control " placeholder="Teléfono" aria-label="telefono" name="telefono2" value="${param.telefono2}" pattern="[6789]{1}[0-9]{9}">
   </div>
   <div class="col-3 mt-3 mx-auto">
-    <input type="text" class="form-control text-LowerCase" placeholder="e-mail" aria-label="email" name="email2" value="${param.email2}">
+    <input type="email" class="form-control text-LowerCase" placeholder="e-mail" aria-label="email" name="email2" value="${param.email2}">
   </div>
  </div>
 </div>
@@ -134,21 +134,21 @@
   </thead>
   <tbody>
     <tr>
-      <td><input type="text" class="form-control" placeholder="Nombre y Apellidos*" aria-label="Nombre" name="nombret" value="${param.nombret}" required></td>
+      <td><input type="text" class="form-control" placeholder="Nombre y Apellidos*" aria-label="Nombre" name="nombret" value="${param.nombret}" required pattern="[a-zA-Z]+"></td>
       <td><input type="text" class="form-control" placeholder="DNI*" aria-label="dni" name="dnit" value="${param.dnit}" required></td>
-      <td><input type="text" class="form-control" placeholder="Teléfono*" aria-label="telefono" name="telefonot" value="${param.telefonot}" required></td>
+      <td><input type="text" class="form-control" placeholder="Teléfono*" aria-label="telefono" name="telefonot" value="${param.telefonot}" required pattern="[6789]{1}[0-9]{9}"></td>
       <td><input type="text" class="form-control" placeholder="Relación familiar*" aria-label="Relacion" name="relaciont" value="${param.relaciont}" required></td>
     </tr>
     <tr>
-      <td><input type="text" class="form-control" placeholder="Nombre y Apellidos" aria-label="Nombre" name="nombret2"></td>
+      <td><input type="text" class="form-control" placeholder="Nombre y Apellidos" aria-label="Nombre" name="nombret2" pattern="[a-zA-Z]+"></td>
       <td><input type="text" class="form-control" placeholder="DNI" aria-label="dni" name="dnit2"></td>
-      <td><input type="text" class="form-control" placeholder="Teléfono" aria-label="telefono" name="telefonot2"></td>
+      <td><input type="text" class="form-control" placeholder="Teléfono" aria-label="telefono" name="telefonot2" pattern="[789][0-9]{9}"></td>
       <td><input type="text" class="form-control" placeholder="Relación familiar" aria-label="Relacion" name="relaciont2"></td>
     </tr>
     <tr>
-      <td><input type="text" class="form-control" placeholder="Nombre y Apellidos" aria-label="Nombre" name="nombret3"></td>
+      <td><input type="text" class="form-control" placeholder="Nombre y Apellidos" aria-label="Nombre" name="nombret3" pattern="[a-zA-Z]+"></td>
       <td><input type="text" class="form-control" placeholder="DNI" aria-label="dni" name="dnit3"></td>
-      <td><input type="text" class="form-control" placeholder="Teléfono" aria-label="telefono" name="telefonot3"></td>
+      <td><input type="text" class="form-control" placeholder="Teléfono" aria-label="telefono" name="telefonot3" pattern="[789][0-9]{9}"></td>
       <td><input type="text" class="form-control" placeholder="Relación familiar" aria-label="Relacion" name="relaciont3"></td>
     </tr>
   </tbody>
@@ -165,8 +165,30 @@
 
 </form>
 </div>
+<script>
+//Example starter JavaScript for disabling form submissions if there are invalid fields
+(() => {
+  'use strict'
 
+  // Fetch all the forms we want to apply custom Bootstrap validation styles to
+  const forms = document.querySelectorAll('.needs-validation')
+
+  // Loop over them and prevent submission
+  Array.from(forms).forEach(form => {
+    form.addEventListener('submit', event => {
+      if (!form.checkValidity()) {
+        event.preventDefault()
+        event.stopPropagation()
+      }
+
+      form.classList.add('was-validated')
+    }, false)
+  })
+})()
+
+</script>
 
 </body>
+
 <jsp:include page="footer.jsp"></jsp:include>
 </html>

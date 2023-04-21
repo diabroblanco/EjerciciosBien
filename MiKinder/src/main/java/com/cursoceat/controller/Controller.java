@@ -8,8 +8,13 @@ import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 
 import java.io.IOException;
+import java.time.LocalDate;
+import java.time.Period;
 import java.util.ArrayList;
 import java.util.List;
+
+import org.apache.taglibs.standard.lang.jstl.test.beans.PublicBean1;
+import org.apache.taglibs.standard.tag.common.fmt.ParseDateSupport;
 
 import com.cursoceat.model.Autorizados;
 import com.cursoceat.model.Ninio;
@@ -155,12 +160,82 @@ public class Controller extends HttpServlet {
 		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
-
+//AREA DE VALIDACION
+	/**
+	 * 
+	 * @param tele
+	 * @return boolean
+	 * @description Validamos el teléfono según formato España
+	 */
 	protected boolean validarTel(String tele) {
 		if((!tele.startsWith("9") && !tele.startsWith("6") && !tele.startsWith("7") || tele.length()!=9)) {
 			return false;
 		}else {
 			return true;
 		}
+	}
+	/**
+	 * 
+	 * @param fNacimiento
+	 * @return boolean
+	 * @description Validamos si el niño tiene menos de 6 años
+	 */
+	public boolean validarFN(String fNacimiento) {
+		LocalDate fechaN=LocalDate.parse(fNacimiento);
+		int aniosNinio=fechaN.getYear();
+		int aniosActual=LocalDate.now().getYear();
+		if((aniosActual-aniosNinio)>6 ||(aniosActual-aniosNinio)<0) {
+			return false;
+		}else {
+			return true;
+		}
+		
+	}
+	public boolean validarDNI(String DNI) {
+		String letras="TRWAGMYFPDXBNJZSQVHLCKE";
+		String enteroDNI=DNI.substring(0,8);
+		try{
+		//La linea de abajo puede dar error
+		int dnInt=Integer.parseInt(enteroDNI)%23;
+		char letraDNI=DNI.toUpperCase().charAt(8);
+		char letraCorrecta=letras.charAt(dnInt);
+		/**
+		 * Condicional para
+		 * 1. el string de dni sea igual a 9 posiciones
+		 * 2. que la letra introducida sea igual a letra del algoritmo de la policia
+		 */
+		if(DNI.length()==9 && letraDNI==letraCorrecta ) {
+			return true;
+		}else {
+			return false;
+		}
+		
+		}//Si no lo puedes hacer
+		catch (Exception e) {
+			// TODO: handle exception
+			System.out.println("error en el numero del dni");
+			return false;
+		}
+		
+		
+		
+		
+	}
+	/**
+	 * 
+	 * @param texto
+	 * @return texto con la primera letra mayuscula
+	 * @
+	 */
+	public String Mayus(String texto) {
+		texto=texto.toLowerCase();
+		String[]arrayTexto=texto.split(" ");
+		String temp="";
+		for (int i=0;i<arrayTexto.length;i++) {
+			arrayTexto[i]=arrayTexto[i].substring(0,1).toUpperCase()+arrayTexto[i].substring(1).toLowerCase();
+			temp+=arrayTexto[i]+" ";
+		}
+		
+		return temp.trim();//enviamos temp ya formateada y quita los espacios del principio y final
 	}
 }
