@@ -74,20 +74,22 @@ public class Controller extends HttpServlet {
 
 		
 		
-		if ( !validarDNI(dniAuto1) ) {
+		if ( !validarDNI(dni) ) {
 			listaErrores.add("Verifique DNI");			
 		}
 		
 		if (!validarFN(fNacimiento)) {
 			listaErrores.add("La persona que intenta inscribir es mayor de edad");
 		}
-		if(nombren.isEmpty() || nombre.isEmpty(){
+		if(nombren.isEmpty() || nombre.isEmpty()){
 			listaErrores.add("El nombre está vacío");
 		}
-		if(apellidosn.isEmpty() || apellidos.isEmpty(){
+		if(apellidosn.isEmpty() || apellidos.isEmpty()){
 			listaErrores.add("Los apellidos están vacíos");
 		}
-		
+		if(!validarCP(cp)) {
+			listaErrores.add("Codigo postal erróneo");
+		}
 		
 		//leer datos formulario
 		//crear objetos =crear clases
@@ -237,9 +239,23 @@ public class Controller extends HttpServlet {
 		
 		
 	}
-	public boolean validarCP(String cp){
 	
-	}
+		public boolean validarCP(String cp) {
+			String enterocp=cp.substring(0,4);
+			try {
+				int intCP=Integer.parseInt(enterocp);
+				if(cp.length()==5 && intCP >=1000 && intCP <=52999) {
+					return true;
+				}else {
+					return false;
+				}
+			}finally {
+				
+			}
+		}
+		
+	
+	
 	/**
 	 * 
 	 * @param texto
