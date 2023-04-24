@@ -36,7 +36,7 @@ public class Controller extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		//response.getWriter().append("Served at: ").append(request.getContextPath());
-		//---------------Datos niÒo-------------------------
+		//---------------Datos ni√±o-------------------------
 		String nombren=request.getParameter("nombren");
 		String apellidosn=request.getParameter("apellidosn");
 		String fNacimiento=request.getParameter("fNacimiento");
@@ -69,8 +69,24 @@ public class Controller extends HttpServlet {
 		String dnit=request.getParameter("dnit");
 		String relaciont=request.getParameter("relaciont");
 		
-		
+		String errorT="";
+		ArrayList<String> listaErrores=new ArrayList<>();	
 
+		
+		
+		if ( !validarDNI(dniAuto1) ) {
+			listaErrores.add("Verifique DNI");			
+		}
+		
+		if (!validarFN(fNacimiento)) {
+			listaErrores.add("La persona que intenta inscribir es mayor de edad");
+		}
+		if(nombren.isEmpty() || nombre.isEmpty(){
+			listaErrores.add("El nombre est√° vac√≠o");
+		}
+		if(apellidosn.isEmpty() || apellidos.isEmpty(){
+			listaErrores.add("Los apellidos est√°n vac√≠os");
+		}
 		
 		
 		//leer datos formulario
@@ -81,7 +97,7 @@ public class Controller extends HttpServlet {
 		if(nombren.isEmpty() || apellidosn.isEmpty() || fNacimiento.isEmpty() || direccion.isEmpty() || poblacion.isEmpty() || cp.isEmpty() || 
 				nombre.isEmpty() || apellidos.isEmpty() || relacion.isEmpty() || dni.isEmpty() || telefono.isEmpty() || parentesco.isEmpty() ||
 				nombret.isEmpty() || telefonot.isEmpty() || dnit.isEmpty() || relaciont.isEmpty() || !validarTel(telefonot)) {
-			String error="Hay alg˙n campo vacÌo o errÛneo";
+			String error="Hay alg√∫n campo vac√≠o o err√≥neo";
 			request.setAttribute("error", error);
 		
 			request.getRequestDispatcher("index.jsp").forward(request, response);//No se muestra si no tengo quien lo muestre
@@ -165,7 +181,7 @@ public class Controller extends HttpServlet {
 	 * 
 	 * @param tele
 	 * @return boolean
-	 * @description Validamos el telÈfono seg˙n formato EspaÒa
+	 * @description Validamos el tel√©fono seg√∫n formato Espa√±a
 	 */
 	protected boolean validarTel(String tele) {
 		if((!tele.startsWith("9") && !tele.startsWith("6") && !tele.startsWith("7") || tele.length()!=9)) {
@@ -178,7 +194,7 @@ public class Controller extends HttpServlet {
 	 * 
 	 * @param fNacimiento
 	 * @return boolean
-	 * @description Validamos si el niÒo tiene menos de 6 aÒos
+	 * @description Validamos si el ni√±o tiene menos de 6 a√±os
 	 */
 	public boolean validarFN(String fNacimiento) {
 		LocalDate fechaN=LocalDate.parse(fNacimiento);
@@ -221,6 +237,9 @@ public class Controller extends HttpServlet {
 		
 		
 	}
+	public boolean validarCP(String cp){
+	
+	}
 	/**
 	 * 
 	 * @param texto
@@ -238,4 +257,5 @@ public class Controller extends HttpServlet {
 		
 		return temp.trim();//enviamos temp ya formateada y quita los espacios del principio y final
 	}
+		   
 }
